@@ -9,7 +9,9 @@ const mangoose = require('mongoose')
 
 // configuração do banco de dados
 // ip/link do servidor, autenticação
-const url = 'mongodb+srv://admin:123Senac@cluster0.tvons.mongodb.net/'
+// ao final da url definir o nome do banco de dados
+// exemplo: /dbclientes
+const url = 'mongodb+srv://admin:123Senac@cluster0.tvons.mongodb.net/dbclientes'
 
 // validação (evitar a abertura de várias conexões)
 let conectado = false
@@ -21,6 +23,7 @@ const conectar = async () => {
         //conectar com o banco de dados
         try {
             await mongoose.connect(url) // conectar
+            conectado = true  // setar a variável
             console.log("MongoDB conectado")
         } catch (error) {
             console.log(error)
@@ -36,6 +39,7 @@ const desconectar = async () => {
         // desconectar
         try {
             await mongoose.disconnect(url) //desconectar
+            conectado = false  // setar a variável
             console.log("MongoDB desconectado")
         } catch (error) {
             console.log(error)
