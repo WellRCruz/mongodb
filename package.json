@@ -18,6 +18,7 @@
   "homepage": "https://github.com/WellRCruz/mongodb#readme",
   "dependencies": {
     "mongoose": "^8.10.1",
-    "status": "^0.0.13"
+    "status": "^0.0.13",
+    "string-similarity": "^4.0.4"
   }
 }
